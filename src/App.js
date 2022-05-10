@@ -2,22 +2,61 @@ import './App.css';
 import styled from '@emotion/styled';
 import randomColor from 'randomcolor';
 import { useState } from 'react';
+import Button from './Button';
+import ColoredBox from './ColoredBox';
 
-const Div = styled.div`
-  background-color: ${(props) => props.background};
-`;
+function App() {
+  // state variables
+  const [color, setColor] = useState('');
+  const [colorHue, setColorHue] = useState('');
+  const [colorLuminosity, setColorLuminosity] = useState('');
 
-export default function App() {
-  const [random, setRandom] = useState(randomColor());
+  // styled components
+  const StyleHeading = styled.h1`
+    font-size: 50px;
+    color: #000000;
+    font-weight: 500;
+    letter-spacing: 5px;
+  `;
+
   return (
     <div className="App">
-      <h2>Generate random color</h2>
-      <br />
-      <br />
-      <button onClick={() => setRandom(randomColor())}>Generate</button>
-      <br />
-      <br />
-      <Div background={random}>Generated Color: {random}</Div>
+      <StyleHeading>Random Color Generator</StyleHeading>
+      <div>
+        {/* Creates two inputs to ask for a hue and luminosity. */}
+        <label htmlFor="hue">Type in a hue:</label>
+        <br />
+        <input id="hue" onChange={(event) => setColorHue(event.target.value)} />
+        <br />
+        <br />
+        <label htmlFor="luminosity">Type in luminosity:</label>
+        <br />
+        <input
+          id="luminosity"
+          onChange={(event) => setColorLuminosity(event.target.value)}
+        />
+        <br />
+        <br />
+        {/* Button component that onClick call randomColor() */}
+        <Button
+          text="Generate"
+          onClick={() => {
+            setColor(
+              randomColor.randomColor({
+                luminosity: colorLuminosity,
+                hue: colorHue,
+              }),
+            );
+          }}
+        />
+        <br />
+        <br />
+        <br />
+        {/* ColoredBox component */}
+        <ColoredBox color={color} />
+      </div>
     </div>
   );
 }
+
+export default App;
