@@ -9,6 +9,7 @@ function Button(props) {
     padding: 13px 30px 13px;
     outline: 0;
     border: 1px solid black;
+    border-radius: 6px;
     cursor: pointer;
     position: relative;
     background-color: #000000;

@@ -13,10 +13,10 @@ function App() {
 
   // styled components
   const StyleHeading = styled.h1`
-    font-size: 50px;
+    font-size: 40px;
     color: #000000;
     font-weight: 500;
-    letter-spacing: 5px;
+    letter-spacing: 3px;
   `;
 
   return (
