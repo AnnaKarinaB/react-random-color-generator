@@ -12,7 +12,7 @@ function ColoredBox(props) {
         justifyContent: 'center',
       }}
     >
-      <div>Generated color: {props.color}</div>
+      Generated color: {props.color}
     </div>
   );
 }
