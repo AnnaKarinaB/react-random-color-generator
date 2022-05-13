@@ -12,18 +12,15 @@ function App() {
   const [colorLuminosity, setColorLuminosity] = useState('');
 
   // styled components
-  const StyleHeading = styled.h1`
-    font-size: 40px;
-    color: #000000;
-    font-weight: 500;
-    letter-spacing: 3px;
-  `;
-
+  const Header = styled.header({
+    fontSize: 40,
+    fontWeight: 500,
+    letterSpacing: 3,
+  });
   return (
     <div className="App">
-      <StyleHeading>Random Color Generator</StyleHeading>
+      <Header>Random Color Generator</Header>
       <div>
-        {/* Creates two inputs to ask for a hue and luminosity. */}
         <label htmlFor="hue">Type in a hue:</label>
         <br />
         <input id="hue" onChange={(event) => setColorHue(event.target.value)} />
@@ -37,7 +34,6 @@ function App() {
         />
         <br />
         <br />
-        {/* Button component that onClick call randomColor() */}
         <Button
           text="Generate"
           onClick={() => {
@@ -52,7 +48,6 @@ function App() {
         <br />
         <br />
         <br />
-        {/* ColoredBox component */}
         <ColoredBox color={color} />
       </div>
     </div>
